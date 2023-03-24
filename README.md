@@ -1,4 +1,4 @@
-# go-short-ly
+# Go-Short-Ly
 Un acortador de enlace permiten crear URL's cortas que te redirigen a URl's original (por los general muy largas); Este proyecto
 esta siendo creado con las siguientes tecnologias:
 - Lenguaje de programacion Go
