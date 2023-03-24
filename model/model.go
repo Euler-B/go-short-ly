@@ -14,9 +14,9 @@ import (
 var db *gorm.DB
 
 type Goly struct {
-	ID       uint64 `json:"id" gorm:"primary_key"`
-	Redirect string `json:"redirect" gorm:"not_null"`
-	Goly     string `json:"goly" gorm:"unique;not_null"`
+	ID       uint64 `json:"id" gorm:"primaryKey"`
+	Redirect string `json:"redirect" gorm:"not null"`
+	Goly     string `json:"goly" gorm:"unique;not null"`
 	Clicked  uint64 `json:"clicked"`
 	Random   bool   `json:"random"`
 }
@@ -26,10 +26,11 @@ func Setup() {
 	if values != nil {
 		log.Fatal("Error cargando el archivo .env")
 	}
+	
 	dsn := os.Getenv("DATABASE_URI")
 
 	var err error
-	db, err := gorm.Open(postgres.Open(dsn))
+	db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic(err)
 	}
